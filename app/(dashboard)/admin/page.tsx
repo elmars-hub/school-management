@@ -1,5 +1,8 @@
+import Announcements from "@/components/Announcements";
 import AttendanceChart from "@/components/charts/AttendanceChart";
 import CountChart from "@/components/charts/CountChart";
+import FinanceChart from "@/components/charts/FinanceChart";
+import EventCalendar from "@/components/EventCalendar";
 import UserCard from "@/components/UserCard";
 
 export default function AdminDashboard() {
@@ -30,12 +33,17 @@ export default function AdminDashboard() {
           </div>
 
           {/* finance chart */}
-          <div className="w-full"></div>
+          <div className="w-full h-125">
+            <FinanceChart />
+          </div>
         </div>
       </div>
 
       {/* Right */}
-      <div className="w-full lg:w-1/3"></div>
+      <div className="w-full lg:w-1/3">
+        <EventCalendar />
+        <Announcements />
+      </div>
     </div>
   );
 }
