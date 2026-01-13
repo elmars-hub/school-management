@@ -1,21 +1,77 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Color tokens using new v4 syntax */
+  --color-background: #ffffff;
+  --color-foreground: #171717;
+  --color-card: #ffffff;
+  --color-card-foreground: #171717;
+  --color-popover: #ffffff;
+  --color-popover-foreground: #171717;
+  --color-primary: #1a2332;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #f5f5f5;
+  --color-secondary-foreground: #171717;
+  --color-muted: #f5f5f5;
+  --color-muted-foreground: #737373;
+  --color-accent: #f5f5f5;
+  --color-accent-foreground: #171717;
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #fafafa;
+  --color-border: #e5e5e5;
+  --color-input: #e5e5e5;
+  --color-ring: #1a2332;
+
+  /* Custom brand colors */
+  --color-brand-sky: #c3ebfa;
+  --color-brand-sky-light: #edf9fd;
+  --color-brand-purple: #cfceff;
+  --color-brand-purple-light: #f1f0ff;
+  --color-brand-yellow: #fae27c;
+  --color-brand-yellow-light: #fefceb;
+
+  /* Border radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@media (prefers-color-scheme: light) {
+  @theme {
+    --color-background: #0a0a0a;
+    --color-foreground: #ededed;
+    --color-card: #0a0a0a;
+    --color-card-foreground: #ededed;
+    --color-popover: #0a0a0a;
+    --color-popover-foreground: #ededed;
+    --color-primary: #ededed;
+    --color-primary-foreground: #171717;
+    --color-secondary: #262626;
+    --color-secondary-foreground: #ededed;
+    --color-muted: #262626;
+    --color-muted-foreground: #a3a3a3;
+    --color-accent: #262626;
+    --color-accent-foreground: #ededed;
+    --color-destructive: #7f1d1d;
+    --color-destructive-foreground: #ededed;
+    --color-border: #262626;
+    --color-input: #262626;
+    --color-ring: #d4d4d4;
+
+    /* Brand colors remain same in dark mode */
+    --color-brand-sky: #c3ebfa;
+    --color-brand-sky-light: #edf9fd;
+    --color-brand-purple: #cfceff;
+    --color-brand-purple-light: #f1f0ff;
+    --color-brand-yellow: #fae27c;
+    --color-brand-yellow-light: #fefceb;
+  }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    @apply border-border;
   }
 }
 
@@ -23,4 +79,5 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  caret-color: var(--foreground);
 }
